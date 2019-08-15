@@ -1,0 +1,27 @@
+.app-wrapper {
+    display: grid;
+    margin-left: 15%;
+    width: 70%;
+    grid-template-areas: 'h h ' 'n c';
+    grid-template-rows: 65px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
+}
+body {
+    background-color: rgb(29, 34, 33);
+    color: rgb(91, 209, 219);
+}
+.app-wrapper-content {
+    grid-area: c;
+    background-color: rgba(93, 101, 102, 0.3);
+}
+.content {
+    grid-area: c;
+    background-color: rgba(93, 101, 102, 0.3);
+}
+.content img {
+    object-fit: cover;
+}
+
+.item {
+}

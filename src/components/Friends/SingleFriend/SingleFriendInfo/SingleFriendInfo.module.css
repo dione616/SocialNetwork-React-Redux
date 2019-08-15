@@ -1,0 +1,19 @@
+.item {
+    display: inline-block;
+    width: 8vw;
+    margin: 10px;
+    margin-left: 2vw;
+}
+.item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+
+.write{
+    text-decoration: none;
+    color: white;
+}
+a.act {
+    color: #4a7291;
+}

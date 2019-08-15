@@ -1,0 +1,5 @@
+.header {
+    grid-area: h;
+    background-color: rgba(93, 101, 102, 0.3);
+    border-radius: 3vh 0px;
+}

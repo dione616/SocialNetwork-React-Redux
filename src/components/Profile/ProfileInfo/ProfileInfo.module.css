@@ -1,0 +1,14 @@
+.descriptionBlock {
+    padding: 1vw;
+    border: 1px solid #00ffee;
+}
+.bioHeader {
+    display:inline-block;
+    margin-left: 1rem;
+    color: rgb(91, 209, 219);
+}
+.bioHeader p {
+}
+.descriptionBlock{
+    overflow-y:hidden;
+}
