@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toKnow.png" beforeDir="false" afterPath="$PROJECT_DIR$/toKnow.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,13 +24,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>+</find>
-      <find>dialog</find>
-      <find>settings</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -130,7 +124,7 @@
       <workItem from="1565814541140" duration="2139000" />
       <workItem from="1565849718076" duration="618000" />
       <workItem from="1565947603571" duration="340000" />
-      <workItem from="1565947996469" duration="2064000" />
+      <workItem from="1565947996469" duration="7500000" />
     </task>
     <task id="LOCAL-00001" summary="L35 Delete render.js">
       <created>1565949729161</created>
