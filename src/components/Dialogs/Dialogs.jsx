@@ -1,43 +1,56 @@
-import React from 'react';
-import style from './Dialogs.module.css';
+import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
+import style from "./Dialogs.module.css";
 import Messages from "./Message/Message";
 
+import { updateNewMessageText } from "..\\..\\redux\\state";
+
 const Dialogs = props => {
-        let dialogsElements = props.state.dialogs.map(d => {
-            const {id, name} = d/*destructuring object d*/
-            return <DialogItem name={name} id={id}/>
-        })/*using map with destructuring object*/
+  let dialogsElements = props.dPage.dialogs.map(d => {
+    const { id, name } = d; /*destructuring object d*/
 
-        let messagesElements = props.state.messages.map(m => {
-            return <Messages message={m.message} />
-        })/*using map*/
-    let textRef=React.createRef()
-    let addMessage=()=>{
-        let textMessage=textRef.current.value
-        props.addMessage(textMessage)
-        textRef.current.value=''
-    }
+    return <DialogItem name={name} id={id} />;
+  }); /*using map with destructuring object*/
 
-        return <div className={style.dialogs}>
-            <div className={style.dialogsItems}>
-                <div className={style.singleItem}>
-                    {dialogsElements}
-                </div>
+  let messagesElements = props.dPage.messages.map(m => {
+    return <Messages message={m.message} />;
+  }); /*using map*/
 
-            </div>
-            <div className={style.messages}>
-                {messagesElements}
-                <div className={style.addMessage}>
-                    <textarea name="" id="" cols="30" rows="5" ref={textRef} />
-                    <br/>
-                    <button onClick={addMessage}>Add message</button>
-                </div>
+  let textRef = React.createRef();
 
-            </div>
+  let addMessage = () => {
+    props.addMessage();
+    props.updateNewMessageText("");
+  };
 
-        </div>;
-    }
-;
+  let onMessageChange = () => {
+    let textMessage = textRef.current.value;
+    props.updateNewMessageText(textMessage);
+  };
+
+  return (
+    <div className={style.dialogs}>
+      <div className={style.dialogsItems}>
+        <div className={style.singleItem}>{dialogsElements}</div>
+      </div>
+      <div className={style.messages}>
+        {messagesElements}
+        <div className={style.addMessage}>
+          <textarea
+            value={props.dPage.newMessageText}
+            name=""
+            id=""
+            cols="30"
+            rows="5"
+            ref={textRef}
+            onChange={onMessageChange}
+          />
+          <br />
+          <button onClick={addMessage}>Add message</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Dialogs;
