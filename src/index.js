@@ -13,7 +13,7 @@ import {
 } from "./redux/state";
 import * as serviceWorker from "./serviceWorker";
 
-export let rerenderEntireTree = () => {
+export let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <App

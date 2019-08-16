@@ -120,5 +120,5 @@ export const updateNewMessageText = newText => {
 window.state = state;
 export const subscribe=(observer)=>{//function replace our rerenderEntireTree on rerenderEntireTree from index.js
     rerenderEntireTree=observer// rerenderEntireTree got callback from index.js
-}
+}//observer is a pattern also publisher-subscriber
 export default state;
