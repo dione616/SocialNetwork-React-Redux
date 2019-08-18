@@ -3,8 +3,6 @@ import DialogItem from "./DialogItem/DialogItem";
 import style from "./Dialogs.module.css";
 import Messages from "./Message/Message";
 
-import { updateNewMessageText } from "..\\..\\redux\\state";
-
 const Dialogs = props => {
   let dialogsElements = props.dPage.dialogs.map(d => {
     const { id, name } = d; /*destructuring object d*/
@@ -19,13 +17,12 @@ const Dialogs = props => {
   let textRef = React.createRef();
 
   let addMessage = () => {
-    props.addMessage();
-    props.updateNewMessageText("");
+    props.dispatch({type:'ADD-MESSAGE'})
   };
 
   let onMessageChange = () => {
     let textMessage = textRef.current.value;
-    props.updateNewMessageText(textMessage);
+    props.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newText:textMessage});
   };
 
   return (

@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3908054f-3e35-4711-b867-5e0659298c19" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/toKnow.png" beforeDir="false" afterPath="$PROJECT_DIR$/toKnow.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +127,9 @@
       <workItem from="1565814541140" duration="2139000" />
       <workItem from="1565849718076" duration="618000" />
       <workItem from="1565947603571" duration="340000" />
-      <workItem from="1565947996469" duration="7500000" />
+      <workItem from="1565947996469" duration="7748000" />
+      <workItem from="1566075807777" duration="61000" />
+      <workItem from="1566113700534" duration="9744000" />
     </task>
     <task id="LOCAL-00001" summary="L35 Delete render.js">
       <created>1565949729161</created>
