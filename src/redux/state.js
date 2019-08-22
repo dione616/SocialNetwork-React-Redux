@@ -1,7 +1,7 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+import {profileReducer} from "./profile-reducer";
+import {dialogsReducer} from "./dialogs-reducer";
+import {friendsReducer} from "./friends-reducer"
+
 let store = {
     _state: {
         profilePage: {
@@ -100,40 +100,11 @@ let store = {
         this._callSubscriber = obsserver
     },
     dispatch(action) {
-        if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText
+        this._state.profilePage=profileReducer(this._state.profilePage,action)
+        this._state.dialogsPage=dialogsReducer(this._state.dialogsPage,action)
+        this._state.friendsPage=friendsReducer(this._state.friendsPage)
             this._callSubscriber(this._state)
-        } else if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                text: this._state.profilePage.newPostText,
-                like: 10,
-            }
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber(this._state)
-
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 55,
-                message: this._state.dialogsPage.newMessageText,
-            }
-            this._state.dialogsPage.messages.push(newMessage)
-            this._state.dialogsPage.newMessageText = ''
-            this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newText
-            this._callSubscriber(this._state)
-        }
     }
-
 }
-export const addPostActionCreater = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT, newText: text
-})
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const updateNewMessageTextActionCreator = (textMessage) =>({//updateNewMessageTextActionCreator why yellow????????
-    type: UPDATE_NEW_MESSAGE_TEXT, newText: textMessage
-})
+
 export default store
