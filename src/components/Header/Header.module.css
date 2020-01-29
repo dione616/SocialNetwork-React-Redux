@@ -1,0 +1,11 @@
+.header {
+  grid-area: header;
+  background-image: linear-gradient(
+    to left top,
+    rgb(9, 139, 74),
+    rgb(165, 235, 99)
+  );
+}
+.header img {
+  width: 100px;
+}

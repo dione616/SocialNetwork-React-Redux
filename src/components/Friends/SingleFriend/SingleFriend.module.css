@@ -1,0 +1,41 @@
+.friendWrapper {
+  display: grid;
+  grid-template-areas:
+    "img name"
+    "img message";
+  width: 15vw;
+  padding: 1rem;
+  grid-template-columns: 10vw 10vw;
+}
+.friendWrapper button {
+  height: 40px;
+}
+.friendAva {
+  grid-area: img;
+}
+.friendAva img {
+  width: 10vw;
+  border-radius: 50%;
+}
+
+.friendName {
+  grid-area: name;
+  padding-left: 1.5rem;
+}
+.buttonMessage {
+  grid-area: message;
+  cursor: pointer;
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 5px;
+  border: 4px solid rgb(9, 139, 74) !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+.buttonMessage:hover {
+  color: #494949 !important;
+  border-color: rgb(165, 235, 99) !important;
+  transition: all 0.8s ease 0s;
+}
