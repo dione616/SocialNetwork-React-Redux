@@ -1,19 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Finger+Paint|Girassol&display=swap');
 .nav {
-  grid-area: nav;
-  padding: 0.5rem;
-  background-image: linear-gradient(
-    to left top,
-    rgb(9, 139, 74),
-    rgb(165, 235, 99)
-  );
-  font-family: "Finger Paint";
+  grid-area: n;
+  padding: 10px;
+  /* align-self: center; */
 }
+.item {
+  background: rgba(0, 0, 0, 0.041);
+  margin-bottom: 10px;
+  border-radius: 35px 5px 35px;
+}
+.item:hover {
+  background: rgba(0, 0, 0, 0.281);
+  border-radius: 35px 5px 55px;
+}
+
 .item a {
-  font-size: 20px;
-  color: rgb(59, 59, 59);
+  font-size: 3rem;
+  color: black;
   text-decoration: none;
 }
-.item a.activeLink{
-  color:gold;
+
+.item a.activeLink {
+  color: gold;
+}
+
+@media all and (max-width: 576px) {
+  .item a {
+    font-size: 1.3rem;
+  }
+}
+@media all and (min-width: 576px) and (max-width: 767.98px) {
+  .item a {
+    font-size: 2rem;
+  }
 }

@@ -1,22 +1,30 @@
-@import url("https://fonts.googleapis.com/css?family=Finger+Paint|Girassol&display=swap");
-html,
 body {
-  box-sizing: border-box;
-  font-family: "Finger Paint";
+  font-family: "Indie Flower", cursive;
+  background: url("./bck.png") no-repeat fixed;
+  background-size: cover;
 }
+
 .app-wrapper {
   margin: 0 auto;
   display: grid;
-  width: 80vw;
+  width: 60vw;
+  grid-template-areas: "h h" "n c";
 
-  grid-template-areas:
-    "header header"
-    "nav cont";
-  grid-template-rows: 60px 25vh;
+  grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  /* grid-gap: 10px; */
 }
+
 .app-wrapper-content {
-  grid-area: cont;
-  padding: 1rem;
+  grid-area: c;
 }
+
+/*
+
+/messages
+/dialogs
+
+/dialogs/3
+/dialogs/2
+
+*/

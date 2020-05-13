@@ -1,17 +1,17 @@
 import React from "react"
-import classes from "./MyPosts.module.css"
+import s from "./MyPosts.module.css"
 import Post from "./Post/Post"
+import { updateNewPostActionCreator, addPostActionCreator } from "../../../redux/profile-reducer"
 
-const MyPosts = props => {
-  let postsElement = props.posts.map(p => {
-    const { id, message, like } = p
-    return <Post message={message} like={like} />
-  })
+const MyPosts = (props) => {
+  let postsElements = props.posts.map((post) => (
+    <Post message={post.message} likesCount={post.likesCount} key={post.id} />
+  ))
 
   let newPostElement = React.createRef()
-
   let onAddPost = () => {
     props.addPost()
+    //props.dispatch(addPostActionCreator())
   }
 
   let onPostChange = () => {
@@ -20,27 +20,19 @@ const MyPosts = props => {
   }
 
   return (
-    <div className={classes.content}>
-      <h2>My Posts</h2>
+    <div className={s.postsBlock}>
+      <h3>My posts</h3>
       <div>
-        <textarea
-          onChange={onPostChange}
-          ref={newPostElement}
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          value={props.newPostText}
-          placeholder="Add New Post"
-        />
-        <button onClick={onAddPost}>Add post</button>
-        <button>Remove</button>
+        <div>
+          <textarea onChange={onPostChange} value={props.newPostText} ref={newPostElement} />
+        </div>
+        <div>
+          <button onClick={onAddPost}>Add post</button>
+        </div>
       </div>
-      <div className={classes.posts}>{postsElement}</div>
+      <div className={s.posts}>{postsElements}</div>
     </div>
   )
 }
 
 export default MyPosts
-//write to Project  NOte
-//add textarea to messages

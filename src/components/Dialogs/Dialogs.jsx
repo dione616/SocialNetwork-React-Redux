@@ -1,50 +1,36 @@
 import React from "react"
-import classes from "./Dialogs.module.css"
-import Message from "./Message/Message"
+import s from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
+import Message from "./Message/Message"
 
-const Dialogs = props => {
+const Dialogs = (props) => {
   let state = props.dialogsPage
-  let dialogsElements = state.dialogs.map(el => {
-    const { id, name } = el
-    return <DialogItem name={name} key={id} id={id} />
-  })
-  let messagesElements = state.messages.map(el => {
-    return <Message message={el.message} key={el.id} />
-  })
 
+  let dialogs = state.dialogs.map((d, i) => <DialogItem key={i} name={d.name} id={d.id} />)
+  let messages = state.messages.map((m, i) => <Message key={i} message={m.message} />)
   let newMessageBody = state.newMessageBody
-
-  let newMessageElement = React.createRef()
 
   let onSendMessageClick = () => {
     props.sendMessage()
   }
-  let onNewMessageChange = e => {
+
+  let onMessageChange = (e) => {
     let body = e.target.value
     props.updateNewMessageBody(body)
   }
 
   return (
-    <div className={classes.dialogs}>
-      <div className={classes.dialogsItems}>{dialogsElements}</div>
-      <div className={classes.messages}>
-        <div>{messagesElements}</div>
+    <div className={s.dialogs}>
+      <div className={s.dialogsItems}>{dialogs}</div>
+      <div className={s.messages}>{messages}</div>
+      <div>
         <div>
-          <textarea
-            ref={newMessageElement}
-            value={newMessageBody}
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-            onChange={onNewMessageChange}
-            placeholder="Add New Message"
-          ></textarea>
-          <button onClick={onSendMessageClick}>Add post</button>
+          <textarea onChange={onMessageChange} value={newMessageBody} placeholder="Enter message" cols="30" rows="10" />
+          <button onClick={onSendMessageClick}>Send</button>
         </div>
       </div>
     </div>
   )
 }
+
 export default Dialogs

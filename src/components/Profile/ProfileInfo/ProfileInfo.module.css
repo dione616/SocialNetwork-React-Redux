@@ -1,0 +1,9 @@
+.descriptionBlock {
+  padding: 10px;
+}
+.profileInfo {
+  overflow: hidden;
+}
+img {
+  max-width: 750px;
+}
