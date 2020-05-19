@@ -1,9 +1,21 @@
 .descriptionBlock {
   padding: 10px;
+  display: flex;
 }
 .profileInfo {
   overflow: hidden;
 }
-img {
-  max-width: 750px;
+.ava {
+  border-radius: 20%;
+  width: 150px;
+}
+.description {
+  display: block;
+}
+.fullName {
+  font-size: 25px;
+  font-weight: 500;
+}
+.status {
+  color: rgba(0, 0, 0, 0.7);
 }

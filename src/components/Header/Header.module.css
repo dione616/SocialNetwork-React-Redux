@@ -5,3 +5,38 @@
 .header img {
   width: 5vw;
 }
+.loginBlock {
+  padding: 10px;
+  width: 200px;
+}
+
+.loginBlock .item {
+  margin-bottom: 10px;
+  border-radius: 35px 5px 35px;
+  font-size: 3rem;
+  color: black;
+  text-decoration: none;
+  width: 200px;
+}
+.loginBlock .item:hover {
+  color: rgba(0, 0, 0, 0.664);
+}
+.loginBlock .loginImg {
+  border-radius: 25px;
+  width: 50px;
+}
+.loginBlockInfo {
+  display: flex;
+  align-items: center;
+}
+
+@media all and (max-width: 576px) {
+  .loginBlock .item {
+    font-size: 1.3rem;
+  }
+}
+@media all and (min-width: 576px) and (max-width: 767.98px) {
+  .loginBlock .item {
+    font-size: 2rem;
+  }
+}

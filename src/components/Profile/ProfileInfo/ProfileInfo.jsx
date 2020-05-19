@@ -1,13 +1,23 @@
 import React from "react"
 import s from "./ProfileInfo.module.css"
+import Loader from "../../commons/Proloader/Loader"
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Loader />
+  }
+  console.log(props.profile)
+
   return (
     <div className={s.profileInfo}>
-      <div>
-        <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350" />
+      <div className={s.descriptionBlock}>
+        <img className={s.ava} src={props.profile.photos.large} alt="profileImg" />
+        <div className={s.description}>
+          <div className={s.fullName}>{props.profile.fullName}</div>
+          <div className={s.status}>{props.profile.aboutMe}</div>
+          <div className={s.status}>Looking for: {props.profile.lookingForAJobDescription}</div>
+        </div>
       </div>
-      <div className={s.descriptionBlock}>ava + description</div>
     </div>
   )
 }
