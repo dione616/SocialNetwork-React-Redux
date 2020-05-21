@@ -6,7 +6,6 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Loader />
   }
-  console.log(props.profile)
 
   return (
     <div className={s.profileInfo}>

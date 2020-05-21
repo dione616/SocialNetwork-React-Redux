@@ -1,3 +1,5 @@
+import { usersAPI, authAPI } from "../api/api"
+
 const SET_USER_DATA = "SET_USER_DATA"
 const SET_USER_IMAGE = "SET_USER_IMAGE"
 
@@ -26,5 +28,19 @@ const authReducer = (state = initialState, action) => {
 export const setUserData = (userId, email, login) => ({ type: SET_USER_DATA, data: { userId, email, login } })
 
 export const setUserImg = (userImgUrl) => ({ type: SET_USER_IMAGE, userImgUrl })
+
+export const getAuthData = () => {
+  return (dispatch) => {
+    authAPI.me().then((response) => {
+      if (response.resultCode === 0) {
+        let { id, email, login } = response.data
+        dispatch(setUserData(id, email, login))
+        usersAPI.getProfileImage().then((res) => {
+          dispatch(setUserImg(res.photos.small))
+        })
+      }
+    })
+  }
+}
 
 export default authReducer
