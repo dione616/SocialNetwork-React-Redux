@@ -1,9 +1,9 @@
 import React from "react"
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post"
-import { Field, reduxForm } from "redux-form"
-import { required, maxLengthCreator } from "../../../utils/validator/validators"
-import Textarea from "../../commons/Proloader/FormsControls/FormsControls"
+import { reduxForm, Field } from "redux-form"
+import { Textarea } from "../../commons/FormsControl/FormsControl"
+import { maxLengthCreator, required } from "../../../utils/validator"
 
 const maxLength500 = maxLengthCreator(500)
 
@@ -12,7 +12,7 @@ const MyPosts = (props) => {
     <Post message={post.message} likesCount={post.likesCount} key={post.id} />
   ))
 
-  const addNewPost = (values) => {
+  let onAddPost = (values) => {
     props.addPost(values.newPostText)
     values.newPostText = ""
   }
@@ -20,7 +20,7 @@ const MyPosts = (props) => {
   return (
     <div className={s.postsBlock}>
       <h3>My posts</h3>
-      <AddPostReduxForm onSubmit={addNewPost} />
+      <AddPostReduxForm onSubmit={onAddPost} />
       <div className={s.posts}>{postsElements}</div>
     </div>
   )
@@ -39,6 +39,8 @@ const AddPostForm = (props) => {
   )
 }
 
-const AddPostReduxForm = reduxForm({ form: "PostAddMessageForm" })(AddPostForm)
+const AddPostReduxForm = reduxForm({
+  form: "PostAddMessageForm",
+})(AddPostForm)
 
 export default MyPosts
