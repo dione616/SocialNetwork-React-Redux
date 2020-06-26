@@ -6,6 +6,7 @@ import axios from "axios"
 import { usersAPI } from "../../api/api"
 
 const Users = (props) => {
+  console.log(props)
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {

@@ -20,8 +20,6 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW: {
-      console.log("follow")
-
       return {
         ...state,
         users: state.users.map((user) => {
@@ -85,7 +83,7 @@ export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, curren
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_FETCHING, isFetching })
 export const toggleFollowing = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOW, isFetching, userId })
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(setCurrentPage(currentPage))
     dispatch(toggleIsFetching(true))

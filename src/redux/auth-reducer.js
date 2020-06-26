@@ -35,7 +35,7 @@ export const setUserImg = (userImgUrl) => ({ type: SET_USER_IMAGE, userImgUrl })
 
 export const getAuthData = () => {
   return (dispatch) => {
-    authAPI.me().then((response) => {
+    return authAPI.me().then((response) => {
       if (response.resultCode === 0) {
         let { id, email, login } = response.data
         dispatch(setUserData(id, email, login, true))
