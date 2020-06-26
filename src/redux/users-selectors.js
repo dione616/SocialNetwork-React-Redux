@@ -1,14 +1,20 @@
-export const getUsers = (state) => {
+import { createSelector } from "reselect"
+
+export const getUsersSelector = (state) => {
   return state.usersPage.users
 }
 
+//first param is selector from which
+//we want to get data and the use it in callback
+export const getUsers = createSelector(getUsersSelector, (users) => {
+  return users.filter((u) => true)
+})
+
 export const getPageSize = (state) => {
-  console.log(state)
   return state.usersPage.pageSize
 }
 
 export const getTotalUsersCount = (state) => {
-  console.log(state)
   return state.usersPage.totalUsersCount
 }
 export const getCurrentPage = (state) => {

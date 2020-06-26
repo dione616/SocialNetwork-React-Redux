@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { follow, unfollow, setCurrentPage, toggleFollowing,requestUsers } from "../../redux/users-reducer"
+import { follow, unfollow, setCurrentPage, toggleFollowing, requestUsers } from "../../redux/users-reducer"
 import Users from "./Users"
 import Loader from "../commons/Proloader/Loader"
 import withAuthRedirect from "../../hoc/withAuthRedirect"
