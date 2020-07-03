@@ -1,7 +1,7 @@
 import { usersAPI, authAPI } from "../api/api"
 import { stopSubmit } from "redux-form"
 
-const SET_USER_DATA = "SET_USER_DATA"
+const SET_USER_DATA = "auth/SET_USER_DATA"
 const SET_USER_IMAGE = "SET_USER_IMAGE"
 
 let initialState = {
@@ -34,29 +34,29 @@ export const setUserData = (userId, email, login, isAuth) => ({
 export const setUserImg = (userImgUrl) => ({ type: SET_USER_IMAGE, userImgUrl })
 
 export const getAuthData = () => {
-  return (dispatch) => {
-    return authAPI.me().then((response) => {
-      if (response.resultCode === 0) {
-        let { id, email, login } = response.data
-        dispatch(setUserData(id, email, login, true))
-        usersAPI.getProfileImage().then((res) => {
-          dispatch(setUserImg(res.photos.small))
-        })
-      }
-    })
+  return async (dispatch) => {
+    let response = await authAPI.me()
+
+    if (response.resultCode === 0) {
+      let { id, email, login } = response.data
+      dispatch(setUserData(id, email, login, true))
+      let responseImage = await usersAPI.getProfileImage()
+
+      dispatch(setUserImg(responseImage.photos.small))
+    }
   }
 }
 
 export const login = (email, password, rememberMe) => {
-  return (dispatch) => {
-    authAPI.login(email, password, rememberMe).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(getAuthData())
-      } else {
-        let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error"
-        dispatch(stopSubmit("login", { _error: message }))
-      }
-    })
+  return async (dispatch) => {
+    let response = await authAPI.login(email, password, rememberMe)
+
+    if (response.data.resultCode === 0) {
+      dispatch(getAuthData())
+    } else {
+      let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error"
+      dispatch(stopSubmit("login", { _error: message }))
+    }
   }
 }
 

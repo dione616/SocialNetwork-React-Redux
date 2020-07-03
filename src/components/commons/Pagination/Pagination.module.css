@@ -1,0 +1,45 @@
+.user {
+  display: flex;
+}
+.pages {
+  color: rgb(0, 0, 0);
+}
+.pages:hover {
+  cursor: pointer;
+}
+.page {
+  margin-left: 5px;
+}
+.selectedPage {
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+}
+.loader {
+  width: 80px;
+  animation: spin 5s linear 0s infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.image img {
+  border-radius: 10%;
+  width: 100px;
+}
+@media all and (max-width: 576px) {
+  .user {
+    font-size: 16px;
+    display: block;
+  }
+
+  .image img {
+    width: 50px;
+  }
+}
+@media all and (min-width: 576px) and (max-width: 767.98px) {
+}
