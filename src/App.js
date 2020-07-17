@@ -2,15 +2,16 @@ import React, { Component } from "react"
 import "./App.css"
 import Navbar from "./components/Navbar/Navbar"
 import DialogsContainer from "./components/Dialogs/DialogsContainer"
-import { Route, withRouter } from "react-router-dom"
+import { Route, withRouter, BrowserRouter } from "react-router-dom"
 import UsersContainer from "./components/Users/UsersContainer"
 import ProfileContainer from "./components/Profile/ProfileContainer"
 import HeaderContainer from "./components/Header/HeaderContainer"
 import Login from "./components/Login/Login"
-import { connect } from "react-redux"
+import { connect, Provider } from "react-redux"
 import { initializeApp } from "./redux/app-reducer"
 import { compose } from "redux"
 import Loader from "./components/commons/Proloader/Loader"
+import store from "./redux/redux-store"
 
 class App extends Component {
   componentDidMount() {
@@ -41,4 +42,15 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(withRouter, connect(mapStateToProps, { initializeApp }))(App)
+let AppContainer = compose(withRouter, connect(mapStateToProps, { initializeApp }))(App)
+
+const JSApp = (props) => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  )
+}
+export default JSApp
